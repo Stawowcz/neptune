@@ -84,8 +84,8 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 - **T21 (Low)** – Verify that **Copy the run name** works properly.  
   - **Rationale:** Convenience feature. Low priority since manual copy is possible.  
 
-- **T22 (Medium)** – Verify that **Change run color** works properly.  
-  - **Rationale:** Useful for visual clarity. Medium since it improves recognition but not critical.  
+- **T22 (Low)** – Verify that **Change run color** works properly.  
+  - **Rationale:** Useful for visual clarity. Low since it improves recognition but not critical.  
 
 - **T23 (High)** – Verify that **Run information** popup is displayed correctly.  
   - **Rationale:** Critical to access metadata. High because it directly impacts user understanding of runs.  
