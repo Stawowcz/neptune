@@ -7,7 +7,9 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
 
-## Navigation  
+## Full Regression Suite  
+
+### Navigation  
 
 - **T1 (High)** – Verify that the main list expands correctly when entering the main tab and that folders have correct icons.  
   - **Rationale:** Core navigation feature. If broken, users cannot explore data at all → critical.  
@@ -29,7 +31,7 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
 
-## Attributes & Preview  
+### Attributes & Preview  
 
 - **T7 (High)** – Verify that each table has both **Name** and **Preview** columns.  
   - **Rationale:** Mandatory for correct data display. Without it, data is unreadable.  
@@ -54,7 +56,7 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
 
-## Search & Filter  
+### Search & Filter  
 
 - **T14 (Medium)** – Verify that search is case-sensitive.  
   - **Rationale:** Ensures predictable results. Medium because incorrect behavior may cause confusion but not complete failure.  
@@ -73,7 +75,7 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
 
-## Run Actions & Settings  
+### Run Actions & Settings  
 
 - **T19 (Medium)** – Verify that charts are downloadable.  
   - **Rationale:** Important for offline analysis but not blocking core functionality.  
@@ -98,3 +100,24 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 - **T26 (High)** – Verify that **Show Inherited Metric** button toggles on and off correctly.  
   - **Rationale:** Impacts correctness of displayed data. High because incorrect state could mislead analysis.  
+
+---
+
+## Smoke Suite (Automated High Priority Tests)  
+
+The following **High priority test cases** are also included in the **Smoke Suite** and will be automated:  
+
+- **T1** – Main list expands correctly with correct folder icons.  
+- **T2** – Subfolders/files expand correctly.  
+- **T7** – Each table has both Name and Preview columns.  
+- **T9** – Data loads correctly into the preview panel.  
+- **T10** – Data in the preview column matches data in the highlighted preview panel.  
+- **T16** – Search by single word works correctly.  
+- **T17** – Search field click displays a list with all elements.  
+- **T23** – Run information popup is displayed correctly.  
+- **T26** – Show Inherited Metric button toggles correctly.  
+
+**Rationale for Smoke Suite:**  
+These scenarios cover the **core critical flows**: navigation, preview, search, and key run actions. Automating them ensures that the most essential functionality is always validated quickly, providing fast feedback in CI/CD pipelines.  
+
+---
