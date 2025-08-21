@@ -11,14 +11,14 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 7,
   reporter: "html",
   use: {
-    
-    baseURL: 'https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM',
+    baseURL:
+      "https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM",
     trace: "on-first-retry",
   },
 
   timeout: 120000,
   expect: {
-    timeout: 45 * 1000
+    timeout: 45 * 1000,
   },
 
   projects: [
@@ -33,8 +33,8 @@ export default defineConfig({
     // },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
     },
   ],
 });

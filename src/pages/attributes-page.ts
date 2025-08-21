@@ -3,17 +3,26 @@ import type { Locator } from "@playwright/test";
 import { AttributeRowNames } from "@locators/attributes-locators";
 import { AttributesTexts } from "@typings/pages/attributes";
 
-
 export class AttributesPage extends BasePage {
-  public readonly rowConfig = this.page.getByRole("row", { name:AttributeRowNames.Config });
-  public readonly rowDebug = this.page.getByRole("row", { name: AttributeRowNames.Debug });
-  public readonly rowEval = this.page.getByRole("row", { name: AttributeRowNames.Eval });
-  public readonly rowRandom = this.page.getByRole("row", { name: AttributeRowNames.Random });
+  public readonly rowConfig = this.page.getByRole("row", {
+    name: AttributeRowNames.Config,
+  });
+  public readonly rowDebug = this.page.getByRole("row", {
+    name: AttributeRowNames.Debug,
+  });
+  public readonly rowEval = this.page.getByRole("row", {
+    name: AttributeRowNames.Eval,
+  });
+  public readonly rowRandom = this.page.getByRole("row", {
+    name: AttributeRowNames.Random,
+  });
   public readonly rowSys = this.page.getByRole("row", {
     name: "sys",
     exact: true,
   });
-  public readonly rowSystem = this.page.getByRole("row", { name: AttributeRowNames.System });
+  public readonly rowSystem = this.page.getByRole("row", {
+    name: AttributeRowNames.System,
+  });
 
   public readonly distributedType: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.DistributedType,
@@ -24,7 +33,9 @@ export class AttributesPage extends BasePage {
   public readonly gitCommit: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.GitCommit,
   });
-  public readonly seed: Locator = this.page.getByRole("row", { name: AttributeRowNames.Seed});
+  public readonly seed: Locator = this.page.getByRole("row", {
+    name: AttributeRowNames.Seed,
+  });
 
   public readonly filterSearchResults = this.page.locator(
     ".filter-search-results",
@@ -33,10 +44,14 @@ export class AttributesPage extends BasePage {
     ".middle-ellipsis__truncated-start",
   );
 
-  public readonly rowData = this.page.getByRole("row", { name: AttributeRowNames.Data });
-  public readonly rowModel = this.page.getByRole("row", { name: AttributeRowNames.Model});
+  public readonly rowData = this.page.getByRole("row", {
+    name: AttributeRowNames.Data,
+  });
+  public readonly rowModel = this.page.getByRole("row", {
+    name: AttributeRowNames.Model,
+  });
   public readonly rowTokenizer = this.page.getByRole("row", {
-    name: AttributeRowNames.Tokenizer
+    name: AttributeRowNames.Tokenizer,
   });
   public readonly rowTraining = this.page.getByRole("row", {
     name: AttributeRowNames.Training,
@@ -57,7 +72,6 @@ export class AttributesPage extends BasePage {
     name: AttributeRowNames.SequenceLength,
   });
 
-
   public readonly row = this.page.locator(".ReactVirtualized__Table__row");
   public readonly attributeListItems = this.page.locator(
     '[data-role="attribute-list-name"]',
@@ -71,7 +85,7 @@ export class AttributesPage extends BasePage {
   });
 
   public readonly columnName = this.page.getByRole("columnheader", {
-    name: AttributesTexts.COLUMN_NAME
+    name: AttributesTexts.COLUMN_NAME,
   });
   public readonly columnPreview = this.page.getByRole("columnheader", {
     name: AttributesTexts.COLUMN_PREVIEW,
@@ -97,8 +111,9 @@ export class AttributesPage extends BasePage {
     await this.safeClick(this.distractionFreeButton);
   }
 
-  public readonly runInformationOption =
-    this.page.getByTitle(AttributesTexts.RUN_INFORMATION)
+  public readonly runInformationOption = this.page.getByTitle(
+    AttributesTexts.RUN_INFORMATION,
+  );
 
   public async clickRunInformation(): Promise<void> {
     await this.safeClick(this.runInformationOption);
@@ -119,7 +134,6 @@ export class AttributesPage extends BasePage {
   );
 
   public readonly previewBody = this.page.locator('[data-role="preview"]');
-
 
   public readonly breadcrumbRoot: Locator = this.page.locator(
     '[data-role="attribute-breadcrumbs"]',

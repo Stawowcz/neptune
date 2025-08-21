@@ -1,9 +1,7 @@
 import type { EnvVars } from "@typings/config/env-types";
 
 function loadEnv(): EnvVars {
-  const keys: (keyof EnvVars)[] = [
-    "BASE_URL",
-  ];
+  const keys: (keyof EnvVars)[] = ["BASE_URL"];
 
   const env = {} as EnvVars;
 

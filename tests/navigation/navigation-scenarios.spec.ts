@@ -41,7 +41,7 @@ test.describe("Navigation Scenarios", () => {
   });
 
   test("T4: should verify that breadcrumb works correctly and is fully navigable.", async ({
-    attributesPage
+    attributesPage,
   }) => {
     await attributesPage.clickConfigRow();
     await attributesPage.clickSystemRow();
@@ -50,7 +50,7 @@ test.describe("Navigation Scenarios", () => {
     await expect.soft(attributesPage.gitCommit).toBeVisible();
     await expect.soft(attributesPage.seed).toBeVisible();
 
-    await attributesPage.clickBreadcrumb(AttributesBreadcrumbs.CONFIG)
+    await attributesPage.clickBreadcrumb(AttributesBreadcrumbs.CONFIG);
 
     await expect.soft(attributesPage.rowData).toBeVisible();
     await expect.soft(attributesPage.rowModel).toBeVisible();
@@ -61,7 +61,6 @@ test.describe("Navigation Scenarios", () => {
     await expect.soft(attributesPage.row).toHaveCount(6);
 
     await attributesPage.clickBreadcrumb(AttributesBreadcrumbs.RUN_ID);
-
 
     await expect.soft(attributesPage.rowConfig).toBeVisible();
     await expect.soft(attributesPage.rowDebug).toBeVisible();

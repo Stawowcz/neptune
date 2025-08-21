@@ -19,4 +19,4 @@ export const AttributeRowNames = {
   SequenceLength: /sequence_length/,
 } as const;
 
-export type AttributeRowKey = keyof typeof AttributeRowNames
+export type AttributeRowKey = keyof typeof AttributeRowNames;
