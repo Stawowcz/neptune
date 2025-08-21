@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:headed": "npx playwright test --headed",
+    "test:debug:chrome": "npx playwright test --debug --project=Chromium",
     "test:chrome": "npx playwright test --project=Chromium",
     "test:firefox": "npx playwright test --project=Firefox",
     "test:webkit": "npx playwright test --project=WebKit",
