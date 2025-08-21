@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@fixtures": ["fixtures"],
+      "@fixtures/*": ["fixtures/*"],
+
+      "@pages": ["pages"],
+      "@pages/*": ["pages/*"],
+
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"],
+
+      "@typings": ["types"],
+      "@typings/*": ["types/*"],
+
+      "@data": ["data"],
+      "@data/*": ["data/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "playwright.config.ts"
+  ]
+}
