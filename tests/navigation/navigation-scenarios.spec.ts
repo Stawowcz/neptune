@@ -40,7 +40,7 @@ test.describe("Navigation Scenarios", () => {
     await expect.soft(attributesPage.row).toHaveCount(6);
   });
 
-  test("T4: should verify that subfolders/files expand correctly when entering a folder", async ({
+  test("T4: should verify that breadcrumb works correctly and is fully navigable.", async ({
     attributesPage
   }) => {
     await attributesPage.clickConfigRow();

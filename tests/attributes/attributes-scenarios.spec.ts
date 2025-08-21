@@ -61,7 +61,7 @@ test.describe("Attributes Scenarios", () => {
     expect(text.length).toBeGreaterThan(0);
   });
 
-  test("T9: should Verify that data in the preview column matches data in the highlighted preview", async ({
+  test("T9: should verify that data in the preview column matches data in the highlighted preview", async ({
     attributesPage,
   }) => {
     await attributesPage.clickConfigRow();
