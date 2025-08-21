@@ -5,9 +5,17 @@ export abstract class BasePage {
   protected readonly page: Page;
   public readonly title: Locator;
 
+  public readonly attributesTab: Locator;
+  public readonly chartsTab: Locator;
+  public readonly dashboardsTab: Locator;
+
   public constructor(page: Page) {
     this.page = page;
     this.title = this.page.getByTestId("title");
+
+    this.attributesTab = this.page.locator('[data-tab-item="attributes"]');
+    this.chartsTab = this.page.locator('[data-tab-item="charts"]');
+    this.dashboardsTab = this.page.locator('[data-tab-item="dashboard"]');
   }
 
   public async goto(
@@ -61,5 +69,17 @@ export abstract class BasePage {
 
   async expectUrlContains(path: string) {
     await expect.soft(this.page).toHaveURL(new RegExp(`.*${path}`));
+  }
+
+  async clickAttributesTab() {
+    await this.safeClick(this.attributesTab);
+  }
+
+  async clickChartsTab() {
+    await this.safeClick(this.chartsTab);
+  }
+
+  async clickDashboardsTab() {
+    await this.safeClick(this.dashboardsTab);
   }
 }

@@ -1,40 +1,62 @@
 import { BasePage } from "@pages/base-page";
 import type { Locator } from "@playwright/test";
+import { AttributeRowNames } from "@locators/attributes-locators";
+import { AttributesTexts } from "@typings/pages/attributes";
+
 
 export class AttributesPage extends BasePage {
-  public readonly rowConfig = this.page.getByRole("row", { name: /config/ });
-  public readonly rowDebug = this.page.getByRole("row", { name: /debug/ });
-  public readonly rowEval = this.page.getByRole("row", { name: /eval/ });
-  public readonly rowRandom = this.page.getByRole("row", { name: /random/ });
+  public readonly rowConfig = this.page.getByRole("row", { name:AttributeRowNames.Config });
+  public readonly rowDebug = this.page.getByRole("row", { name: AttributeRowNames.Debug });
+  public readonly rowEval = this.page.getByRole("row", { name: AttributeRowNames.Eval });
+  public readonly rowRandom = this.page.getByRole("row", { name: AttributeRowNames.Random });
   public readonly rowSys = this.page.getByRole("row", {
     name: "sys",
     exact: true,
   });
-  public readonly rowSystem = this.page.getByRole("row", { name: /system/ });
+  public readonly rowSystem = this.page.getByRole("row", { name: AttributeRowNames.System });
 
-  public readonly rowData = this.page.getByRole("row", { name: /data/ });
-  public readonly rowModel = this.page.getByRole("row", { name: /model/ });
+  public readonly distributedType: Locator = this.page.getByRole("row", {
+    name: AttributeRowNames.DistributedType,
+  });
+  public readonly deType: Locator = this.page.getByRole("row", {
+    name: AttributeRowNames.DType,
+  });
+  public readonly gitCommit: Locator = this.page.getByRole("row", {
+    name: AttributeRowNames.GitCommit,
+  });
+  public readonly seed: Locator = this.page.getByRole("row", { name: AttributeRowNames.Seed});
+
+  public readonly filterSearchResults = this.page.locator(
+    ".filter-search-results",
+  );
+  public readonly truncatedStart = this.page.locator(
+    ".middle-ellipsis__truncated-start",
+  );
+
+  public readonly rowData = this.page.getByRole("row", { name: AttributeRowNames.Data });
+  public readonly rowModel = this.page.getByRole("row", { name: AttributeRowNames.Model});
   public readonly rowTokenizer = this.page.getByRole("row", {
-    name: /tokenizer/,
+    name: AttributeRowNames.Tokenizer
   });
   public readonly rowTraining = this.page.getByRole("row", {
-    name: /training/,
+    name: AttributeRowNames.Training,
   });
   public readonly rowParameters = this.page.getByRole("row", {
-    name: /parameters\.json/,
+    name: AttributeRowNames.Parameters,
   });
 
   public readonly rowBatchSize = this.page.getByRole("row", {
-    name: /batch_size/,
+    name: AttributeRowNames.BatchSize,
   });
 
   public readonly rowPacking = this.page.getByRole("row", {
-    name: /packing/,
+    name: AttributeRowNames.Packing,
   });
 
   public readonly rowSequenceLenght = this.page.getByRole("row", {
-    name: /sequence_length/,
+    name: AttributeRowNames.SequenceLength,
   });
+
 
   public readonly row = this.page.locator(".ReactVirtualized__Table__row");
   public readonly attributeListItems = this.page.locator(
@@ -45,42 +67,72 @@ export class AttributesPage extends BasePage {
   );
 
   public readonly parentFolderArrow = this.page.getByRole("img", {
-    name: "Go to parent folder",
+    name: AttributesTexts.PARENT_FOLDER,
   });
 
   public readonly columnName = this.page.getByRole("columnheader", {
-    name: "Name",
+    name: AttributesTexts.COLUMN_NAME
   });
   public readonly columnPreview = this.page.getByRole("columnheader", {
-    name: "Preview",
+    name: AttributesTexts.COLUMN_PREVIEW,
   });
 
-  // 🔹 nowy locator na Close guide button
   public readonly closeGuideButton = this.page.getByRole("button", {
-    name: "Close guide",
+    name: AttributesTexts.CLOSE_GUIDE,
   });
 
   public readonly cookieAcceptButton = this.page.getByRole("button", {
-    name: "OK, I get it",
+    name: AttributesTexts.COOKIE_ACCEPT,
   });
 
-  // --- PREVIEW ---
+  public readonly detailsMenuButton = this.page.locator(
+    '[data-role="details-menu-button"]',
+  );
+
+  private readonly distractionFreeButton: Locator = this.page.locator(
+    '[data-role="enter-distraction-free-view"]',
+  );
+
+  async clickDistractionFreeButton() {
+    await this.safeClick(this.distractionFreeButton);
+  }
+
+  public readonly runInformationOption =
+    this.page.getByTitle(AttributesTexts.RUN_INFORMATION)
+
+  public async clickRunInformation(): Promise<void> {
+    await this.safeClick(this.runInformationOption);
+  }
+
+  public async clickDetailsMenuButton(): Promise<void> {
+    await this.safeClick(this.detailsMenuButton);
+  }
+
   public readonly previewWrapper = this.page.locator(".file-preview-wrapper");
 
-  // loader (tylko dla preview)
   public readonly previewLoader = this.previewWrapper.locator(
     '[data-role="loading-indicator"]',
   );
 
-  // tekst "Preview"
   public readonly previewText = this.previewWrapper.locator(
     ".loading-preview__text",
   );
 
-  // faktyczna zawartość preview
   public readonly previewBody = this.page.locator('[data-role="preview"]');
 
-  // metody do kliknięcia w każdy wiersz
+
+  public readonly breadcrumbRoot: Locator = this.page.locator(
+    '[data-role="attribute-breadcrumbs"]',
+  );
+
+  public getBreadcrumb(name: string): Locator {
+    return this.breadcrumbRoot.getByRole("button", { name });
+  }
+
+  public async clickBreadcrumb(name: string): Promise<void> {
+    await this.safeClick(this.getBreadcrumb(name));
+  }
+
   public async clickSequenceLenght(): Promise<void> {
     await this.safeClick(this.rowSequenceLenght);
   }
@@ -162,5 +214,21 @@ export class AttributesPage extends BasePage {
     return this.page.locator(
       '[data-role="av-text-preview-body"] .text-preview-content',
     );
+  }
+
+  public readonly searchInput = this.page.getByRole("textbox", {
+    name: AttributesTexts.SEARCH_ATTRIBUTES,
+  });
+
+  public async clickSearchInput(): Promise<void> {
+    await this.safeClick(this.searchInput);
+  }
+
+  public async clickFilteredSearchResult(): Promise<void> {
+    await this.safeClick(this.filterSearchResults);
+  }
+
+  public async fillSearchInput(value: string): Promise<void> {
+    await this.safeFill(this.searchInput, value);
   }
 }

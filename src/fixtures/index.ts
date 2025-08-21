@@ -1,9 +1,11 @@
 import { test as base, expect } from "@playwright/test";
-import { attributesFixture } from "./pages-fixture";
+import { pagesFixture } from "./pages-fixture";
 import type { MyFixtures } from "@typings/fixtures";
+import { componentsFixture } from "./components-fixture";
 
 export const test = base.extend<MyFixtures>({
-  ...attributesFixture,
+  ...pagesFixture,
+  ...componentsFixture,
 });
 
 export { expect };

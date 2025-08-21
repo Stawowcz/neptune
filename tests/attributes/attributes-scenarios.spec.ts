@@ -1,7 +1,7 @@
 import { test, expect } from "@fixtures";
 
 test.describe("Attributes Scenarios", () => {
-  test.beforeEach(async ({ attributesPage, page }) => {
+  test.beforeEach(async ({ attributesPage }) => {
     await attributesPage.goto(process.env.BASE_URL!);
     await attributesPage.clickAcceptCookies();
   });
@@ -40,26 +40,21 @@ test.describe("Attributes Scenarios", () => {
     await attributesPage.clickParentFolderArrow();
   });
 
-  test.only("T8: should verify that data loads correctly into the preview panel", async ({
+  test("T8: should verify that data loads correctly into the preview panel", async ({
     attributesPage,
   }) => {
-    // batch_size
     await attributesPage.clickConfigRow();
     await expect.soft(attributesPage.row).toHaveCount(6);
 
     await attributesPage.clickParametersRow();
 
-    // Loader (tylko w preview)
     await expect(attributesPage.previewLoader).not.toBeVisible();
 
-    // Tekst "Preview"
     await expect(attributesPage.previewText).not.toBeVisible();
 
-    // Faktyczna zawartość preview
     await expect(attributesPage.previewBody).toBeVisible();
 
     const text = await attributesPage.previewBody.innerText();
-    console.log("Parameters.json preview content:", text);
 
     expect(text.length).toBeGreaterThan(0);
   });

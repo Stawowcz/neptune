@@ -106,6 +106,7 @@ The following **High priority test cases** are also included in the **Smoke Suit
 
 - **T1 (High)** – Verify that the main list expands correctly when entering the main tab and that folders have correct icons.
 - **T2 (High)** – Verify that subfolders/files expand correctly when entering a folder.
+- **T4 (Medium)** – Verify that breadcrumb works correctly and is fully navigable.
 - **T6 (High)** – Verify that each table has both **Name** and **Preview** columns.
 - **T8 (High)** – Verify that data loads correctly into the preview panel (e.g., file preview).
 - **T9 (High)** – Verify that data in the preview column matches data in the highlighted preview panel.
@@ -113,7 +114,6 @@ The following **High priority test cases** are also included in the **Smoke Suit
 - **T16 (High)** – Verify that when clicking the search field, a list with all elements appears.
 - **T22 (High)** – Verify that **Run information** popup is displayed correctly.
 - **T24 (High)** – Verify that **Leave distraction free view** works correctly.
-- **T25 (High)** – Verify that **Show Inherited Metric** button toggles on and off correctly.
 
 **Rationale for Smoke Suite:**  
 These scenarios cover the **core critical flows**: navigation, preview, search, and key run actions. Automating them ensures that the most essential functionality is always validated quickly, providing fast feedback in CI/CD pipelines.

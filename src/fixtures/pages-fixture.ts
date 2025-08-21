@@ -1,12 +1,11 @@
 import type { Page } from "@playwright/test";
 import { AttributesPage } from "@pages/attributes-page";
 
-export const attributesFixture = {
+export const pagesFixture = {
   attributesPage: async (
     { page }: { page: Page },
     use: (attributesPage: AttributesPage) => Promise<void>,
   ) => {
-    // dodajemy initScript przed każdym goto w tym teście
     await page.addInitScript(() => {
       localStorage.setItem(
         "userflow:anonymousId",

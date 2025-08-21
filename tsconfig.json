@@ -23,7 +23,13 @@
       "@typings/*": ["types/*"],
 
       "@data": ["data"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+
+      "@components": ["components"],
+      "@components/*": ["components/*"],
+
+      "@locators": ["locators"],
+      "@locators/*": ["locators/*"]
     }
   },
   "include": [
@@ -34,3 +40,4 @@
     "playwright.config.ts"
   ]
 }
+
