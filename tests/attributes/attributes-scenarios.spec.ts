@@ -1,8 +1,9 @@
 import { test, expect } from "@fixtures";
+import { env } from "@utils/env-utils";
 
 test.describe("Attributes Scenarios", () => {
   test.beforeEach(async ({ attributesPage }) => {
-    await attributesPage.goto(process.env.BASE_URL!);
+    await attributesPage.goto(env.BASE_URL);
     await attributesPage.clickAcceptCookies();
   });
 
