@@ -1,4 +1,5 @@
 import { test, expect } from "@fixtures";
+import { AttributesBreadcrumbs } from "@typings/pages/attributes";
 import { env } from "@utils/env-utils";
 
 test.describe("Navigation Scenarios", () => {
@@ -49,7 +50,7 @@ test.describe("Navigation Scenarios", () => {
     await expect.soft(attributesPage.gitCommit).toBeVisible();
     await expect.soft(attributesPage.seed).toBeVisible();
 
-    await attributesPage.clickBreadcrumb("config");
+    await attributesPage.clickBreadcrumb(AttributesBreadcrumbs.CONFIG)
 
     await expect.soft(attributesPage.rowData).toBeVisible();
     await expect.soft(attributesPage.rowModel).toBeVisible();
@@ -59,7 +60,7 @@ test.describe("Navigation Scenarios", () => {
     await expect.soft(attributesPage.rowParameters).toBeVisible();
     await expect.soft(attributesPage.row).toHaveCount(6);
 
-    await attributesPage.clickBreadcrumb("LLM-90");
+    await attributesPage.clickBreadcrumb(AttributesBreadcrumbs.RUN_ID);
 
 
     await expect.soft(attributesPage.rowConfig).toBeVisible();

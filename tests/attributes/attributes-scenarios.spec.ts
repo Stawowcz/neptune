@@ -1,4 +1,5 @@
 import { test, expect } from "@fixtures";
+import { AttributesKeys } from "@typings/pages/attributes";
 import { env } from "@utils/env-utils";
 
 test.describe("Attributes Scenarios", () => {
@@ -71,21 +72,21 @@ test.describe("Attributes Scenarios", () => {
 
     await attributesPage.clickBatchSizeRow();
     const batchTableValue = await attributesPage
-      .getAttributeTableValue("batch_size")
+      .getAttributeTableValue(AttributesKeys.BATCH_SIZE)
       .innerText();
     const batchPanelValue = attributesPage.getAttributePanelValue();
     await expect(batchPanelValue).toHaveText(batchTableValue);
 
     await attributesPage.clickPackingRow();
     const packingTableValue = await attributesPage
-      .getAttributeTableValue("packing")
+      .getAttributeTableValue(AttributesKeys.PACKING)
       .innerText();
     const packingPanelValue = attributesPage.getAttributePanelValue();
     await expect(packingPanelValue).toHaveText(packingTableValue);
 
     await attributesPage.clickSequenceLenght();
     const seqTableValue = await attributesPage
-      .getAttributeTableValue("sequence_length")
+      .getAttributeTableValue(AttributesKeys.SEQUENCE_LENGTH)
       .innerText();
     const seqPanelValue = attributesPage.getAttributePanelValue();
     await expect(seqPanelValue).toHaveText(seqTableValue);

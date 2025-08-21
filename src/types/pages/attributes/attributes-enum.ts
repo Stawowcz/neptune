@@ -10,3 +10,17 @@ export enum AttributesTexts {
   RUN_INFORMATION = "Run information",
   SEARCH_ATTRIBUTES = "Search attributes...",
 }
+
+export enum AttributesKeys {
+  BATCH_SIZE = "batch_size",
+  PACKING = "packing",
+  SEQUENCE_LENGTH = "sequence_length",
+  HIDDEN_SIZE = "hidden_size",
+}
+
+export enum AttributesBreadcrumbs {
+  CONFIG = "config",
+  RUN_ID = "LLM-90",
+}
+
+

@@ -1,4 +1,5 @@
 import { test, expect } from "@fixtures";
+import { AttributesKeys } from "@typings/pages/attributes";
 import { env } from "@utils/env-utils";
 
 test.describe("Search scenarios", () => {
@@ -14,7 +15,7 @@ test.describe("Search scenarios", () => {
     await expect.soft(attributesPage.filterSearchResults).toHaveCount(1);
     await attributesPage.clickFilteredSearchResult();
     const seqTableValue = await attributesPage
-      .getAttributeTableValue("hidden_size")
+      .getAttributeTableValue(AttributesKeys.HIDDEN_SIZE)
       .innerText();
     const seqPanelValue = attributesPage.getAttributePanelValue();
     await expect(seqPanelValue).toHaveText(seqTableValue);
