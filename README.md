@@ -1,6 +1,6 @@
 # Playwright Test Automation
 
-Automated end-to-end tests for the Neptune using Playwright + TypeScript, with Page Object Model, custom fixtures, and soft assertions.  
+Automated end-to-end tests for the Neptune using Playwright + TypeScript, with Page Object Model, custom fixtures, and soft assertions.
 
 These tests can be executed by dispatch in **GitHub Actions** on **Chromium, Firefox, and WebKit**, ensuring full cross-browser coverage.  
 They validate functionality of the **Neptune Attributes tab** available at:  
@@ -67,8 +67,7 @@ Full test documentation is available in:
 [`docs/TEST_DOCUMENTATION.md`](docs/TEST_DOCUMENTATION.md)
 
 The documentation contains:
-- Detailed descriptions of all test cases (T1–T29) with priorities, rationale, and expected behavior  
-- Test plan and smoke/regression suite structure  
+
+- Detailed descriptions of all test cases (T1–T29) with priorities, rationale, and expected behavior
+- Test plan and smoke/regression suite structure
 - Links to relevant Neptune documentation
-
-
