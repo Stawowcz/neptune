@@ -1,4 +1,4 @@
-import { AttributesRunData } from "@data/attributes/attributes-run.data";
+import { AttributesRunData } from "@data/attributes-run-data";
 import { test, expect } from "@fixtures";
 import { env } from "@utils/env-utils";
 

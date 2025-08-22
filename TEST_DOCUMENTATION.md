@@ -1,30 +1,32 @@
-# Test Documentation for Neptune Attributes  
+# Test Documentation for Neptune Attributes
 
-## Introduction  
+## Introduction
 
 This test plan focuses on validating the **Attributes tab in the single run view** of the Neptune application:  
-[Single run view – LLM-Pretraining example](https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM)  
+[Single run view – LLM-Pretraining example](https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM)
 
-The goal is to ensure that users can reliably explore and interact with run metadata, including navigation through namespaces, previewing attribute values, searching and filtering, and performing essential run actions.  
+The goal is to ensure that users can reliably explore and interact with run metadata, including navigation through namespaces, previewing attribute values, searching and filtering, and performing essential run actions.
 
-The analysis was based on Neptune documentation:  
-- [Runs](https://docs.neptune.ai/runs)  
-- [Namespaces and attributes](https://docs.neptune.ai/namespaces_and_attributes)  
+The analysis was based on Neptune documentation:
+
+- [Runs](https://docs.neptune.ai/runs)
+- [Namespaces and attributes](https://docs.neptune.ai/namespaces_and_attributes)
 - [Attribute types](https://docs.neptune.ai/attribute_types) and the provided test environment.  
-From this, we identified potential **risks** such as:  
-- incorrect rendering of metadata structure (namespaces/attributes),  
-- mismatched or missing preview values,  
-- inconsistencies between attribute types and displayed data,  
-- failures in search/filter functionality,  
-- problems with key run actions (distraction free view).  
+  From this, we identified potential **risks** such as:
+- incorrect rendering of metadata structure (namespaces/attributes),
+- mismatched or missing preview values,
+- inconsistencies between attribute types and displayed data,
+- failures in search/filter functionality,
+- problems with key run actions (distraction free view).
 
-The test suite is divided into **Full Regression** and **Smoke Suite**:  
-- **Full Regression** covers all identified scenarios, including functional and usability edge cases.  
-- **Smoke Suite** focuses on the **most critical, high-priority paths**, automated to provide fast and reliable validation in CI/CD pipelines.  
+The test suite is divided into **Full Regression** and **Smoke Suite**:
+
+- **Full Regression** covers all identified scenarios, including functional and usability edge cases.
+- **Smoke Suite** focuses on the **most critical, high-priority paths**, automated to provide fast and reliable validation in CI/CD pipelines.
 
 ---
 
-This document describes **26 test cases** divided into logical categories.  
+This document describes **29 test cases** divided into logical categories.
 Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
