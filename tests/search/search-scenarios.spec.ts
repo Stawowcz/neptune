@@ -6,6 +6,8 @@ test.describe("Search scenarios", () => {
   test.beforeEach(async ({ attributesPage }) => {
     await attributesPage.goto(env.BASE_URL);
     await attributesPage.clickAcceptCookies();
+
+    await expect.soft(attributesPage.row).toHaveCount(6);
   });
 
   test("T15: should verify that we can search by a single word", async ({
@@ -18,6 +20,7 @@ test.describe("Search scenarios", () => {
       .getAttributeTableValue(AttributesKeys.HIDDEN_SIZE)
       .innerText();
     const seqPanelValue = attributesPage.getAttributePanelValue();
+
     await expect(seqPanelValue).toHaveText(seqTableValue);
     await expect(seqPanelValue).toHaveText("6144");
   });
@@ -26,6 +29,7 @@ test.describe("Search scenarios", () => {
     attributesPage,
   }) => {
     await attributesPage.clickSearchInput();
+
     await expect.soft(attributesPage.filterSearchResults).toHaveCount(1);
     await expect.soft(attributesPage.truncatedStart).toHaveCount(58);
   });

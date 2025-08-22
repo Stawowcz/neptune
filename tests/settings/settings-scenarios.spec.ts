@@ -6,6 +6,8 @@ test.describe("Search scenarios", () => {
   test.beforeEach(async ({ attributesPage }) => {
     await attributesPage.goto(env.BASE_URL);
     await attributesPage.clickAcceptCookies();
+
+    await expect.soft(attributesPage.row).toHaveCount(6);
   });
 
   test("T22: should verify that Run information popup is displayed correctly.", async ({

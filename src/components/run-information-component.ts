@@ -28,7 +28,6 @@ export class RunInformationModal extends BaseComponent {
   public readonly groupTags: Locator = this.root.locator(
     '[data-name="entity-group-tags"]',
   );
-
   constructor(page: Page) {
     super(page, page.locator(".n-modal__card"));
   }

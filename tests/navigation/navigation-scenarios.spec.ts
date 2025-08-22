@@ -6,6 +6,8 @@ test.describe("Navigation Scenarios", () => {
   test.beforeEach(async ({ attributesPage }) => {
     await attributesPage.goto(env.BASE_URL);
     await attributesPage.clickAcceptCookies();
+
+    await expect.soft(attributesPage.row).toHaveCount(6);
   });
 
   test("T1: should verify that the main list expands correctly when entering the main tab", async ({
@@ -31,6 +33,7 @@ test.describe("Navigation Scenarios", () => {
     attributesPage,
   }) => {
     await attributesPage.clickConfigRow();
+
     await expect.soft(attributesPage.rowData).toBeVisible();
     await expect.soft(attributesPage.rowModel).toBeVisible();
     await expect.soft(attributesPage.rowSystem).toBeVisible();
@@ -45,6 +48,7 @@ test.describe("Navigation Scenarios", () => {
   }) => {
     await attributesPage.clickConfigRow();
     await attributesPage.clickSystemRow();
+
     await expect.soft(attributesPage.distributedType).toBeVisible();
     await expect.soft(attributesPage.deType).toBeVisible();
     await expect.soft(attributesPage.gitCommit).toBeVisible();

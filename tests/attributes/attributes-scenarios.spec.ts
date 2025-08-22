@@ -7,53 +7,63 @@ test.describe("Attributes Scenarios", () => {
   test.beforeEach(async ({ attributesPage }) => {
     await attributesPage.goto(env.BASE_URL);
     await attributesPage.clickAcceptCookies();
+
+    await expect.soft(attributesPage.row).toHaveCount(6);
   });
 
   test("T6: should verify that each table has both Name and Preview columns.", async ({
     attributesPage,
   }) => {
     await attributesPage.clickConfigRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
 
     await attributesPage.clickDebugRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
 
     await attributesPage.clickEvalRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
 
     await attributesPage.clickRandomRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
 
     await attributesPage.clickSysRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
 
     await attributesPage.clickSystemRow();
+
     await expect(attributesPage.columnName).toBeVisible();
     await expect(attributesPage.columnPreview).toBeVisible();
+
     await attributesPage.clickParentFolderArrow();
   });
 
   test("T8: should verify that data loads correctly into the preview panel", async ({
     attributesPage,
   }) => {
-    await expect.soft(attributesPage.row).toHaveCount(6);
-
     await attributesPage.clickRandomRow();
-
     await attributesPage.clickMetric000();
 
     await expect.soft(attributesPage.chartCanvases).toHaveCount(2);
-
     await expect
       .soft(attributesPage.chartTitle)
       .toContainText(AttributesRunData.METRIC_000);
@@ -63,9 +73,11 @@ test.describe("Attributes Scenarios", () => {
     attributesPage,
   }) => {
     await attributesPage.clickConfigRow();
+
     await expect.soft(attributesPage.row).toHaveCount(6);
 
     await attributesPage.clickDataRow();
+
     await expect.soft(attributesPage.row).toHaveCount(3);
 
     await attributesPage.clickBatchSizeRow();
@@ -73,6 +85,7 @@ test.describe("Attributes Scenarios", () => {
       .getAttributeTableValue(AttributesKeys.BATCH_SIZE)
       .innerText();
     const batchPanelValue = attributesPage.getAttributePanelValue();
+
     await expect(batchPanelValue).toHaveText(batchTableValue);
 
     await attributesPage.clickPackingRow();
@@ -80,6 +93,7 @@ test.describe("Attributes Scenarios", () => {
       .getAttributeTableValue(AttributesKeys.PACKING)
       .innerText();
     const packingPanelValue = attributesPage.getAttributePanelValue();
+
     await expect(packingPanelValue).toHaveText(packingTableValue);
 
     await attributesPage.clickSequenceLenght();
@@ -87,6 +101,7 @@ test.describe("Attributes Scenarios", () => {
       .getAttributeTableValue(AttributesKeys.SEQUENCE_LENGTH)
       .innerText();
     const seqPanelValue = attributesPage.getAttributePanelValue();
+
     await expect(seqPanelValue).toHaveText(seqTableValue);
   });
 });

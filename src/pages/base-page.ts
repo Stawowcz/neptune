@@ -3,7 +3,6 @@ import { GotoOptions, LocatorWaitOptions } from "@typings/framework";
 
 export abstract class BasePage {
   protected readonly page: Page;
-
   public readonly attributesTab: Locator;
   public readonly chartsTab: Locator;
   public readonly dashboardsTab: Locator;
@@ -55,11 +54,9 @@ export abstract class BasePage {
   public async clickAttributesTab(): Promise<void> {
     await this.safeClick(this.attributesTab);
   }
-
   public async clickChartsTab(): Promise<void> {
     await this.safeClick(this.chartsTab);
   }
-
   public async clickDashboardsTab(): Promise<void> {
     await this.safeClick(this.dashboardsTab);
   }
