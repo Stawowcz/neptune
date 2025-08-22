@@ -4,7 +4,7 @@ Automated end-to-end tests for the Neptune using Playwright + TypeScript, with P
 
 These tests can be executed by dispatch in **GitHub Actions** on **Chromium, Firefox, and WebKit**, ensuring full cross-browser coverage.  
 They validate functionality of the **Neptune Attributes tab** available at:  
-[https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM](https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM)
+[Single run view – LLM-Pretraining example](https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM)
 
 ## Installation
 
