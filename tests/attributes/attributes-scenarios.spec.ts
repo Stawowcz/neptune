@@ -44,7 +44,7 @@ test.describe("Attributes Scenarios", () => {
   });
 
   test("T8: should verify that data loads correctly into the preview panel", async ({
-    attributesPage
+    attributesPage,
   }) => {
     await expect.soft(attributesPage.row).toHaveCount(6);
 

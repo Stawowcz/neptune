@@ -1,7 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 
 export abstract class BaseComponent {
-  protected readonly page: Page;
+  private readonly page: Page;
   protected readonly root: Locator;
 
   constructor(page: Page, root: Locator) {

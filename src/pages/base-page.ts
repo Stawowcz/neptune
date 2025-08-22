@@ -3,7 +3,6 @@ import { GotoOptions, LocatorWaitOptions } from "@typings/framework";
 
 export abstract class BasePage {
   protected readonly page: Page;
-  public readonly title: Locator;
 
   public readonly attributesTab: Locator;
   public readonly chartsTab: Locator;
@@ -11,8 +10,6 @@ export abstract class BasePage {
 
   public constructor(page: Page) {
     this.page = page;
-    this.title = this.page.getByTestId("title");
-
     this.attributesTab = this.page.locator('[data-tab-item="attributes"]');
     this.chartsTab = this.page.locator('[data-tab-item="charts"]');
     this.dashboardsTab = this.page.locator('[data-tab-item="dashboard"]');
@@ -55,31 +52,15 @@ export abstract class BasePage {
     await locator.clear();
   }
 
-  async goBack() {
-    await this.page.goBack();
-  }
-
-  async goForward() {
-    await this.page.goForward();
-  }
-
-  async reloadPage() {
-    await this.page.reload();
-  }
-
-  async expectUrlContains(path: string) {
-    await expect.soft(this.page).toHaveURL(new RegExp(`.*${path}`));
-  }
-
-  async clickAttributesTab() {
+  public async clickAttributesTab(): Promise<void> {
     await this.safeClick(this.attributesTab);
   }
 
-  async clickChartsTab() {
+  public async clickChartsTab(): Promise<void> {
     await this.safeClick(this.chartsTab);
   }
 
-  async clickDashboardsTab() {
+  public async clickDashboardsTab(): Promise<void> {
     await this.safeClick(this.dashboardsTab);
   }
 }

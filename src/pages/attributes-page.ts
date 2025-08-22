@@ -4,27 +4,27 @@ import { AttributeRowNames } from "@locators/attributes-locators";
 import { AttributesTexts } from "@typings/pages/attributes";
 
 export class AttributesPage extends BasePage {
-  public readonly rowConfig = this.page.getByRole("row", {
+  public readonly rowConfig: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Config,
   });
-  public readonly rowDebug = this.page.getByRole("row", {
+  public readonly rowDebug: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Debug,
   });
-  public readonly rowEval = this.page.getByRole("row", {
+  public readonly rowEval: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Eval,
   });
-  public readonly rowRandom = this.page.getByRole("row", {
+  public readonly rowRandom: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Random,
   });
-  public readonly rowSys = this.page.getByRole("row", {
+  public readonly rowSys: Locator = this.page.getByRole("row", {
     name: "sys",
     exact: true,
   });
-  public readonly rowSystem = this.page.getByRole("row", {
+  public readonly rowSystem: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.System,
   });
 
-  public readonly rowMetric000 = this.page.getByRole("row", {
+  private readonly rowMetric000: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Metric000,
   });
 
@@ -41,69 +41,67 @@ export class AttributesPage extends BasePage {
     name: AttributeRowNames.Seed,
   });
 
-  public readonly filterSearchResults = this.page.locator(
+  public readonly filterSearchResults: Locator = this.page.locator(
     ".filter-search-results",
   );
-  public readonly truncatedStart = this.page.locator(
+  public readonly truncatedStart: Locator = this.page.locator(
     ".middle-ellipsis__truncated-start",
   );
 
-  public readonly rowData = this.page.getByRole("row", {
+  public readonly rowData: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Data,
   });
-  public readonly rowModel = this.page.getByRole("row", {
+  public readonly rowModel: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Model,
   });
-  public readonly rowTokenizer = this.page.getByRole("row", {
+  public readonly rowTokenizer: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Tokenizer,
   });
-  public readonly rowTraining = this.page.getByRole("row", {
+  public readonly rowTraining: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Training,
   });
-  public readonly rowParameters = this.page.getByRole("row", {
+  public readonly rowParameters: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Parameters,
   });
 
-  public readonly rowBatchSize = this.page.getByRole("row", {
+  private readonly rowBatchSize: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.BatchSize,
   });
 
-  public readonly rowPacking = this.page.getByRole("row", {
+  private readonly rowPacking: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.Packing,
   });
 
-  public readonly rowSequenceLenght = this.page.getByRole("row", {
+  private readonly rowSequenceLenght: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.SequenceLength,
   });
 
-  public readonly row = this.page.locator(".ReactVirtualized__Table__row");
-  public readonly attributeListItems = this.page.locator(
+  public readonly row: Locator = this.page.locator(
+    ".ReactVirtualized__Table__row",
+  );
+  public readonly attributeListItems: Locator = this.page.locator(
     '[data-role="attribute-list-name"]',
   );
-  public readonly folderIcons = this.attributeListItems.locator(
+  public readonly folderIcons: Locator = this.attributeListItems.locator(
     'svg[data-icon="folder"]',
   );
 
-  public readonly parentFolderArrow = this.page.getByRole("img", {
+  private readonly parentFolderArrow: Locator = this.page.getByRole("img", {
     name: AttributesTexts.PARENT_FOLDER,
   });
 
-  public readonly columnName = this.page.getByRole("columnheader", {
+  public readonly columnName: Locator = this.page.getByRole("columnheader", {
     name: AttributesTexts.COLUMN_NAME,
   });
-  public readonly columnPreview = this.page.getByRole("columnheader", {
+  public readonly columnPreview: Locator = this.page.getByRole("columnheader", {
     name: AttributesTexts.COLUMN_PREVIEW,
   });
 
-  public readonly closeGuideButton = this.page.getByRole("button", {
-    name: AttributesTexts.CLOSE_GUIDE,
-  });
-
-  public readonly cookieAcceptButton = this.page.getByRole("button", {
+  private readonly cookieAcceptButton: Locator = this.page.getByRole("button", {
     name: AttributesTexts.COOKIE_ACCEPT,
   });
 
-  public readonly detailsMenuButton = this.page.locator(
+  private readonly detailsMenuButton: Locator = this.page.locator(
     '[data-role="details-menu-button"]',
   );
 
@@ -127,48 +125,21 @@ export class AttributesPage extends BasePage {
     '[data-role="series-label"] .chart-legend__series-label-name',
   );
 
-  async clickMetric000() {
-    await this.safeClick(this.rowMetric000);
-  }
-  async clickDistractionFreeButton() {
-    await this.safeClick(this.distractionFreeButton);
-  }
-
-  async clickLeaveDistractionFreeButton() {
-    await this.safeClick(this.leaveDistractionFreeButton);
-  }
-
-  public readonly runInformationOption = this.page.getByTitle(
+  private readonly runInformationOption: Locator = this.page.getByTitle(
     AttributesTexts.RUN_INFORMATION,
   );
 
-  public async clickRunInformation(): Promise<void> {
-    await this.safeClick(this.runInformationOption);
-  }
-
-  public async clickDetailsMenuButton(): Promise<void> {
-    await this.safeClick(this.detailsMenuButton);
-  }
-
-  public readonly previewWrapper = this.page.locator(".file-preview-wrapper");
-
-  public readonly previewLoader = this.previewWrapper.locator(
-    '[data-role="loading-indicator"]',
-  );
-
-  public readonly previewText = this.previewWrapper.locator(
-    ".loading-preview__text",
-  );
-
-  public readonly previewBody = this.page.locator('[data-role="preview"]');
-
-  public readonly breadcrumbRoot: Locator = this.page.locator(
+  private readonly breadcrumbRoot: Locator = this.page.locator(
     '[data-role="attribute-breadcrumbs"]',
   );
 
-  public getBreadcrumb(name: string): Locator {
+  private getBreadcrumb(name: string): Locator {
     return this.breadcrumbRoot.getByRole("button", { name });
   }
+
+  private readonly searchInput: Locator = this.page.getByRole("textbox", {
+    name: AttributesTexts.SEARCH_ATTRIBUTES,
+  });
 
   public async clickBreadcrumb(name: string): Promise<void> {
     await this.safeClick(this.getBreadcrumb(name));
@@ -213,22 +184,6 @@ export class AttributesPage extends BasePage {
     await this.safeClick(this.rowData);
   }
 
-  public async clickModelRow(): Promise<void> {
-    await this.safeClick(this.rowModel);
-  }
-
-  public async clickTokenizerRow(): Promise<void> {
-    await this.safeClick(this.rowTokenizer);
-  }
-
-  public async clickTrainingRow(): Promise<void> {
-    await this.safeClick(this.rowTraining);
-  }
-
-  public async clickParametersRow(): Promise<void> {
-    await this.safeClick(this.rowParameters);
-  }
-
   public async clickParentFolderArrow(): Promise<void> {
     await this.safeClick(this.parentFolderArrow);
   }
@@ -237,7 +192,38 @@ export class AttributesPage extends BasePage {
     await this.safeClick(this.cookieAcceptButton);
   }
 
-  public getAttributeRow(attributeName: string) {
+  public async clickSearchInput(): Promise<void> {
+    await this.safeClick(this.searchInput);
+  }
+
+  public async clickFilteredSearchResult(): Promise<void> {
+    await this.safeClick(this.filterSearchResults);
+  }
+
+  public async fillSearchInput(value: string): Promise<void> {
+    await this.safeFill(this.searchInput, value);
+  }
+
+  public async clickRunInformation(): Promise<void> {
+    await this.safeClick(this.runInformationOption);
+  }
+
+  public async clickDetailsMenuButton(): Promise<void> {
+    await this.safeClick(this.detailsMenuButton);
+  }
+
+  public async clickMetric000(): Promise<void> {
+    await this.safeClick(this.rowMetric000);
+  }
+  public async clickDistractionFreeButton(): Promise<void> {
+    await this.safeClick(this.distractionFreeButton);
+  }
+
+  public async clickLeaveDistractionFreeButton(): Promise<void> {
+    await this.safeClick(this.leaveDistractionFreeButton);
+  }
+
+  private getAttributeRow(attributeName: string) {
     return this.page
       .locator(
         `[data-role="attribute-list-name"][data-name="${attributeName}"]`,
@@ -255,21 +241,5 @@ export class AttributesPage extends BasePage {
     return this.page.locator(
       '[data-role="av-text-preview-body"] .text-preview-content',
     );
-  }
-
-  public readonly searchInput = this.page.getByRole("textbox", {
-    name: AttributesTexts.SEARCH_ATTRIBUTES,
-  });
-
-  public async clickSearchInput(): Promise<void> {
-    await this.safeClick(this.searchInput);
-  }
-
-  public async clickFilteredSearchResult(): Promise<void> {
-    await this.safeClick(this.filterSearchResults);
-  }
-
-  public async fillSearchInput(value: string): Promise<void> {
-    await this.safeFill(this.searchInput, value);
   }
 }
