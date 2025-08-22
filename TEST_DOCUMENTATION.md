@@ -1,6 +1,28 @@
-# TEST_PLAN.md
+# Test Documentation for Neptune Attributes  
 
-# Test Plan for Neptune Attributes
+## Introduction  
+
+This test plan focuses on validating the **Attributes tab in the single run view** of the Neptune application:  
+[Single run view – LLM-Pretraining example](https://scale.neptune.ai/o/examples/org/LLM-Pretraining/runs/details?viewId=standard-view&detailsTab=attributes&runIdentificationKey=llm_train-v945&type=experiment&compare=uMlyIDUTmecveIHVma0eEB95Ei5xu8F_9qHOh0nynbtM)  
+
+The goal is to ensure that users can reliably explore and interact with run metadata, including navigation through namespaces, previewing attribute values, searching and filtering, and performing essential run actions.  
+
+The analysis was based on Neptune documentation:  
+- [Runs](https://docs.neptune.ai/runs)  
+- [Namespaces and attributes](https://docs.neptune.ai/namespaces_and_attributes)  
+- [Attribute types](https://docs.neptune.ai/attribute_types) and the provided test environment.  
+From this, we identified potential **risks** such as:  
+- incorrect rendering of metadata structure (namespaces/attributes),  
+- mismatched or missing preview values,  
+- inconsistencies between attribute types and displayed data,  
+- failures in search/filter functionality,  
+- problems with key run actions (distraction free view).  
+
+The test suite is divided into **Full Regression** and **Smoke Suite**:  
+- **Full Regression** covers all identified scenarios, including functional and usability edge cases.  
+- **Smoke Suite** focuses on the **most critical, high-priority paths**, automated to provide fast and reliable validation in CI/CD pipelines.  
+
+---
 
 This document describes **26 test cases** divided into logical categories.  
 Each test case includes: **ID, Priority, Description, and Rationale**.
@@ -83,7 +105,7 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 - **T20 (Low)** – Verify that **Copy the run name** works properly.
   - **Rationale:** Convenience feature. Low priority since manual copy is possible.
 
-- **T21 (Low)** – Verify that **Change run color** works properly.
+- **T21 (Medium)** – Verify that **Change run color** works properly.
   - **Rationale:** Useful for visual clarity. Low since it improves recognition but not critical.
 
 - **T22 (High)** – Verify that **Run information** popup is displayed correctly.
@@ -100,13 +122,29 @@ Each test case includes: **ID, Priority, Description, and Rationale**.
 
 ---
 
+### Attribute Types & Data Validation
+
+- **T26 (High)** – Verify that attributes of different types (Float, Integer, String, Boolean, Datetime) are displayed correctly in the Attributes tab.
+  - **Rationale:** Core correctness – wrong type rendering could mislead analysis.
+
+- **T27 (High)** – Verify that series attributes (FloatSeries, StringSeries, FileSeries, HistogramSeries) display values consistently across steps or time.
+  - **Rationale:** Essential for analyzing metrics and logs over time.
+
+- **T28 (Medium)** – Verify handling of very long attribute names (close to 1024 bytes).
+  - **Rationale:** Edge case from documentation; failure could break UI.
+
+- **T29 (High)** – Verify behavior when attribute values exceed limits (e.g., long String > 1 MiB, StringSet > 1 MiB).
+  - **Rationale:** Important edge case – system should gracefully handle or truncate, not crash.
+
+---
+
 ## Smoke Suite (Automated High Priority Tests)
 
 The following **High priority test cases** are also included in the **Smoke Suite** and will be automated:
 
 - **T1 (High)** – Verify that the main list expands correctly when entering the main tab and that folders have correct icons.
 - **T2 (High)** – Verify that subfolders/files expand correctly when entering a folder.
-- **T4 (Medium)** – Verify that breadcrumb works correctly and is fully navigable.
+- **T4 (Medium)** – Verify that breadcrumb works correctly and is fully navigable.(added to smoke just to check at least on back navigation way)
 - **T6 (High)** – Verify that each table has both **Name** and **Preview** columns.
 - **T8 (High)** – Verify that data loads correctly into the preview panel (e.g., file preview).
 - **T9 (High)** – Verify that data in the preview column matches data in the highlighted preview panel.
