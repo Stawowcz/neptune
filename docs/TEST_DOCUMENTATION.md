@@ -146,7 +146,7 @@ The following **High priority test cases** are also included in the **Smoke Suit
 
 - **T1 (High)** – Verify that the main list expands correctly when entering the main tab and that folders have correct icons.
 - **T2 (High)** – Verify that subfolders/files expand correctly when entering a folder.
-- **T4 (Medium)** – Verify that breadcrumb works correctly and is fully navigable.(added to smoke just to check at least on back navigation way)
+- **T4 (Medium)** – Verify that breadcrumb works correctly and is fully navigable.(added to smoke just to check at least one back navigation way)
 - **T6 (High)** – Verify that each table has both **Name** and **Preview** columns.
 - **T8 (High)** – Verify that data loads correctly into the preview panel (e.g., file preview).
 - **T9 (High)** – Verify that data in the preview column matches data in the highlighted preview panel.
