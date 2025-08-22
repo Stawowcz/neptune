@@ -8,4 +8,5 @@ export const AttributesRunData = {
   DESCRIPTION: "No description",
   TAGS: "AdamWBPELionSentencePiecegelugelu_newrelusilu",
   GROUP_TAGS: "v945",
+  METRIC_000: "random/metric_00000",
 } as const;

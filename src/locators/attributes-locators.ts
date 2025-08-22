@@ -17,6 +17,7 @@ export const AttributeRowNames = {
   BatchSize: /batch_size/,
   Packing: /packing/,
   SequenceLength: /sequence_length/,
+  Metric000: /metric_00000/,
 } as const;
 
 export type AttributeRowKey = keyof typeof AttributeRowNames;

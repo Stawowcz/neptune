@@ -1,3 +1,4 @@
+import { AttributesRunData } from "@data";
 import { test, expect } from "@fixtures";
 import { AttributesKeys } from "@typings/pages/attributes";
 import { env } from "@utils/env-utils";
@@ -43,22 +44,19 @@ test.describe("Attributes Scenarios", () => {
   });
 
   test("T8: should verify that data loads correctly into the preview panel", async ({
-    attributesPage,
+    attributesPage
   }) => {
-    await attributesPage.clickConfigRow();
     await expect.soft(attributesPage.row).toHaveCount(6);
 
-    await attributesPage.clickParametersRow();
+    await attributesPage.clickRandomRow();
 
-    await expect(attributesPage.previewLoader).not.toBeVisible();
+    await attributesPage.clickMetric000();
 
-    await expect(attributesPage.previewText).not.toBeVisible();
+    await expect.soft(attributesPage.chartCanvases).toHaveCount(2);
 
-    await expect(attributesPage.previewBody).toBeVisible();
-
-    const text = await attributesPage.previewBody.innerText();
-
-    expect(text.length).toBeGreaterThan(0);
+    await expect
+      .soft(attributesPage.chartTitle)
+      .toContainText(AttributesRunData.METRIC_000);
   });
 
   test("T9: should verify that data in the preview column matches data in the highlighted preview", async ({

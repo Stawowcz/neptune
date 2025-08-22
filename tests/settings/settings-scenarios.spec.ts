@@ -43,16 +43,15 @@ test.describe("Search scenarios", () => {
     );
   });
 
-  test("T24: should verify that Leave distraction free view works correctly.", async ({
+  test("T24: should verify that Enter and Leave distraction free view works correctly.", async ({
     attributesPage,
   }) => {
     await attributesPage.clickDistractionFreeButton();
-    await expect.soft(attributesPage.attributesTab).toBeHidden();
-    await expect.soft(attributesPage.chartsTab).toBeHidden();
-    await expect.soft(attributesPage.dashboardsTab).toBeHidden();
-    await attributesPage.clickDistractionFreeButton();
-    await expect.soft(attributesPage.attributesTab).toBeVisible();
-    await expect.soft(attributesPage.chartsTab).toBeVisible();
-    await expect.soft(attributesPage.dashboardsTab).toBeVisible();
+
+    await expect.soft(attributesPage.compressIcon).toBeVisible();
+
+    await attributesPage.clickLeaveDistractionFreeButton();
+
+    await expect.soft(attributesPage.compressIcon).not.toBeVisible();
   });
 });

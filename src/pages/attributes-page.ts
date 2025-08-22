@@ -24,6 +24,10 @@ export class AttributesPage extends BasePage {
     name: AttributeRowNames.System,
   });
 
+  public readonly rowMetric000 = this.page.getByRole("row", {
+    name: AttributeRowNames.Metric000,
+  });
+
   public readonly distributedType: Locator = this.page.getByRole("row", {
     name: AttributeRowNames.DistributedType,
   });
@@ -107,8 +111,31 @@ export class AttributesPage extends BasePage {
     '[data-role="enter-distraction-free-view"]',
   );
 
+  private readonly leaveDistractionFreeButton: Locator = this.page.locator(
+    '[data-role="leave-distraction-free-view"]',
+  );
+
+  public readonly compressIcon: Locator = this.page.locator(
+    '[data-icon="compress"]',
+  );
+
+  public readonly chartCanvases: Locator = this.page.locator(
+    '[data-role="chart-with-data"] canvas',
+  );
+
+  public readonly chartTitle: Locator = this.page.locator(
+    '[data-role="series-label"] .chart-legend__series-label-name',
+  );
+
+  async clickMetric000() {
+    await this.safeClick(this.rowMetric000);
+  }
   async clickDistractionFreeButton() {
     await this.safeClick(this.distractionFreeButton);
+  }
+
+  async clickLeaveDistractionFreeButton() {
+    await this.safeClick(this.leaveDistractionFreeButton);
   }
 
   public readonly runInformationOption = this.page.getByTitle(
